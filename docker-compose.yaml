@@ -1,0 +1,29 @@
+version: "3.6"
+
+services:
+  php81-test1:
+    image: php:8.1-fpm-build
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: ./Dockerfile.test1
+      args:
+        - PHP_MODULES=xdebug zip redis pdo_mysql gd intl
+
+  php81-test2:
+    image: php:8.1-fpm-build
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: ./Dockerfile.test2
+      args:
+        - PHP_MODULES=xdebug zip redis pdo_mysql gd intl
+        
+  php81-test3:
+    image: php:8.1-fpm-build
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: ./Dockerfile.test3
+      args:
+        - PHP_MODULES=xdebug zip redis pdo_mysql gd intl
